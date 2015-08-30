@@ -1,1 +1,13 @@
-cc
+c
+c
+hello
+world
+django
+python
+js
+jquery
+angularJS
+react
+nodejs
+require.js
+
