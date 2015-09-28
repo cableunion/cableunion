@@ -122,10 +122,10 @@ TEMPLATE_DIRS = (
     # os.path.join(BASE_DIR,  '../home/templates'),
 )
 
-EMAIL_HOST = 'smtp.163.com' #SMTP地址
+EMAIL_HOST = '' #SMTP地址
 # EMAIL_PORT = 80 #SMTP端口
-EMAIL_HOST_USER = 'maxw1991@163.com' #我自己的邮箱
-EMAIL_HOST_PASSWORD = 'maxw1991' #我的邮箱密码
+EMAIL_HOST_USER = '' #我自己的邮箱
+EMAIL_HOST_PASSWORD = '' #我的邮箱密码
 EMAIL_SUBJECT_PREFIX = u'[中缆联盟]' #为邮件Subject-line前缀,默认是'[django]'
 EMAIL_USE_TLS = True #与SMTP服务器通信时，是否启动TLS链接(安全链接)。默认是false
 #管理员站点
