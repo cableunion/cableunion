@@ -1,0 +1,74 @@
+{% extends 'common/Base/base.html' %}
+
+{% block title %}注册{% endblock %}
+
+{% block content %}
+    <div class="col register">
+        <div class="register-form">
+            <h2>注 册</h2>
+
+            {% if errMessage %}
+                <div class="errlist">
+                    {{ errMessage }}
+                </div>
+            {% endif %}
+
+            <form method="post" action="/account/register_views/" id="formID">
+                <div>
+                    <label><em class="red">*</em>用户名：</label>
+                    <input name="username" type="text" class="validate[required, minSize[5], custom[notChinese]]" id="ajaxUsername">
+                </div>
+                <div>
+                    <label><em class="red">*</em>密码：</label>
+                    <input name="password" type="password" class="validate[required, minSize[6]]" id="password">
+                </div>
+                <div>
+                    <label><em class="red">*</em>重复密码：</label>
+                    <input name="password2" type="password" class="validate[required, minSize[6]], equals[password]]">
+                </div>
+                <div>
+                    <label>公司：</label>
+                    <input name="company_name" type="text" class="textbox">
+                </div>
+                <div>
+                    <label>地址：</label>
+                    <select id="loc_province" style="width:80px;" name="province"></select>
+                    <select id="loc_city" style="width:100px;" name="city"></select>
+                    <select id="loc_town" style="width:120px;" name="town"></select>
+                </div>
+                <div>
+                    <label>邮编：</label>
+                    <input name="postalcode" type="text" class="validate[custom[onlyNumberSp]]">
+                </div>
+
+                <div>
+                    <label><em class="red">*</em>手机：</label>
+                    <input name="mobile" type="text" class="validate[required,custom[mobilephone]]">
+                </div>
+
+                <div>
+                    <label>行业：</label>
+                    <input name="industry" type="text" class="textbox">
+                </div>
+
+                <div>
+                    <label><em class="red">*</em>邮箱：</label>
+                    <input name="email" type="text" class="validate[required, custom[email]]" id="ajaxEmail">
+                </div>
+
+                <div>
+                    <label>
+                        <input type="submit" value="完成注册" class="myButton">
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="clear"></div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ STATIC_URL }}js/location/area.js"></script>
+    <script src="{{ STATIC_URL }}js/location/location.js"></script>
+    <script src="{{ STATIC_URL }}account_js/account/register.js"></script>
+{% endblock %}

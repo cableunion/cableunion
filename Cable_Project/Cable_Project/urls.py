@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
@@ -10,5 +11,6 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    url(r'^$', include('account.urls')),
+    url(r'^account/', include('account.urls')), # url(r'^account/$', include('account.urls')), 不能有结束符$
+    url(r'', include('home.urls')),
 )

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>课程设计-{% block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    {% include "common/include_css.html" %}
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+{% include "common/header.html" %}
+
+{% block content %}{% endblock %}
+
+{% csrf_token %}
+{% include "common/footer.html" %}
+
+{% include "common/include_js.html" %}
+{% block js %}{% endblock %}
+</body>
+</html>

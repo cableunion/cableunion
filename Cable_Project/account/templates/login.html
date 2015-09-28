@@ -1,0 +1,46 @@
+{% extends 'common/Base/base.html' %}
+
+{% block title %}登录{% endblock %}
+
+{% block content %}
+
+    <div class="login-col login">
+
+        <div class="login-form">
+            <section>
+                <h2>登 录</h2>
+
+                {% if errMessage %}
+                    <div class="errlist">
+                        {{ errMessage }}
+                    </div>
+                {% endif %}
+
+                <form method="post" action="/account/login_views/" id="loginFormID">
+                    <div>
+                        <span><input name="username" type="text" class="validate[required]"></span>
+                    </div>
+                    <div>
+                        <span><input name="password" type="password" class="validate[required]"></span>
+                    </div>
+
+                    <div>
+                        <label>验证码：</label>
+                        <span><input name="captcha" class="validate[required] captcha" type="text" style="width: 95px;"></span>
+                        <img style="float: right; margin-right: 106px; margin-top: -40px;" title="点击更换验证码" id="captcha" alt="验证码" src="{{ STATIC_URL }}img/captchas/captcha.gif"/>
+                    </div>
+                    <div>
+                        <span><input type="submit" value="登录" class="myButton"></span>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ STATIC_URL }}account_js/account/login.js"></script>
+{% endblock %}
