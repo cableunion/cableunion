@@ -111,12 +111,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,  '../common/static'),
     os.path.join(BASE_DIR,  '../account/static'),
+    os.path.join(BASE_DIR,  '../home/static'),
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), '../common/templates').replace('\\','/'),
-    os.path.join(os.path.dirname(__file__), '../account/templates').replace('\\','/'),
-    os.path.join(os.path.dirname(__file__), '../home/templates').replace('\\','/'),
+    os.path.join(os.path.dirname(__file__), '../common/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../account/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../home/templates').replace('\\', '/'),
     # os.path.join(BASE_DIR,  '../common/templates'),
     # os.path.join(BASE_DIR,  '../account/templates'),
     # os.path.join(BASE_DIR,  '../home/templates'),

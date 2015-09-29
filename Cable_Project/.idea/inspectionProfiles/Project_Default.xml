@@ -5,9 +5,27 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="2">
+          <list size="20">
             <item index="0" class="java.lang.String" itemvalue="django" />
             <item index="1" class="java.lang.String" itemvalue="python-memcached" />
+            <item index="2" class="java.lang.String" itemvalue="django-cms" />
+            <item index="3" class="java.lang.String" itemvalue="django-sekizai" />
+            <item index="4" class="java.lang.String" itemvalue="Resource" />
+            <item index="5" class="java.lang.String" itemvalue="jsonschema" />
+            <item index="6" class="java.lang.String" itemvalue="functools32" />
+            <item index="7" class="java.lang.String" itemvalue="ipython" />
+            <item index="8" class="java.lang.String" itemvalue="Django" />
+            <item index="9" class="java.lang.String" itemvalue="djangocms-admin-style" />
+            <item index="10" class="java.lang.String" itemvalue="six" />
+            <item index="11" class="java.lang.String" itemvalue="Python-EasyConfig" />
+            <item index="12" class="java.lang.String" itemvalue="JsonSir" />
+            <item index="13" class="java.lang.String" itemvalue="Werkzeug" />
+            <item index="14" class="java.lang.String" itemvalue="django-debug-toolbar" />
+            <item index="15" class="java.lang.String" itemvalue="soaplib" />
+            <item index="16" class="java.lang.String" itemvalue="JsonForm" />
+            <item index="17" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="18" class="java.lang.String" itemvalue="urllib3" />
+            <item index="19" class="java.lang.String" itemvalue="elasticsearch" />
           </list>
         </value>
       </option>
