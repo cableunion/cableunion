@@ -40,6 +40,8 @@ def _login(request):
                     error['errMessage'] = '用户名或密码错误！'
         else:
             error['errMessage'] = '验证码错误！'
+    else:
+        form = LoginForm()
     return render_to_response('login.html', error, RequestContext(request))
 
 
@@ -96,6 +98,9 @@ def register(request):
                 error['errMessage'] = '该邮箱已经被注册！'
         else:
             error['errMessage'] = form.errors
+    else:
+        # django生成的表单
+        form = RegisterForm()
     return render_to_response('register.html', error, RequestContext(request))
 
 
