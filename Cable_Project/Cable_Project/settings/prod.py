@@ -111,6 +111,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,  '../common/static'),
     os.path.join(BASE_DIR,  '../account/static'),
+    os.path.join(BASE_DIR,  '../home/static'),
 )
 
 TEMPLATE_DIRS = (
