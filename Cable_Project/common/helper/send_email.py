@@ -49,7 +49,7 @@ class smtpMail(object):
         #添加邮件内容
         txt = MIMEText(content, _subtype='plain', _charset='UTF-8')
         #添加html的邮件内容
-        txt = MIMEText("请点击以下链接或者将地址复制到浏览器完成注册。<br/><a href='http://10.57.122.45/account/register/{0}'>www.中联联盟.com/{1}</a><br/>中缆联盟期待您的加入！！！".format(user_uuid, user_uuid), _subtype='html',  _charset='UTF-8')
+        txt = MIMEText("请点击以下链接或者将地址复制到浏览器完成注册。<br/><a href='http://121.40.131.180/account/register/{0}'>www.中联联盟.com/{1}</a><br/>中缆联盟期待您的加入！！！".format(user_uuid, user_uuid), _subtype='html',  _charset='UTF-8')
         msg.attach(txt)
 
         # 构造MIMEBase对象做为文件附件内容并附加到根容器
