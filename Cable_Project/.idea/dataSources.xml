@@ -6,7 +6,7 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://:3306/trade</jdbc-url>
       <user-name>root</user-name>
-      <user-password>dfd0dfc6dfc6dfc7df9fdf92</user-password>
+      <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Django test" uuid="a32d9fd9-d8d1-4014-ae02-a5c78401c025">
