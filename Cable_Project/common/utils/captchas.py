@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-import os
 import random
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
-from django.http import HttpResponseRedirect, HttpResponse
 import sys
 import os
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 try:
@@ -25,7 +24,7 @@ def create_validate_code(size=(120, 30),
                          bg_color=(255, 255, 255),
                          fg_color=(0, 0, 255),
                          font_size=18,
-                         font_type=os.path.normpath(os.path.join(os.path.dirname(__file__), 'captcha_font/times.ttf')),
+                         font_type=os.path.join(os.path.dirname(__file__), 'captcha_font/times.ttf').replace('\\', '/'),
                          length=4,
                          draw_lines=True,
                          n_line=(1, 2),
