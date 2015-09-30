@@ -28,20 +28,20 @@ def _login(request):
     '''
     error = {'errMessage': ''}
     if request.method == 'POST':
-        if request.session.has_key('validate') and request.session['validate'].lower() == request.POST['captcha'].lower():
-            form = LoginForm(request.POST)
-            if form.is_valid():
-                data = form.cleaned_data
-                username = data['username']
-                password = data['password']
-                if login_validate(request, username, password):
-                    return HttpResponseRedirect('/')
-                else:
-                    error['errMessage'] = '用户名或密码错误！'
+        # if request.session.has_key('validate') and request.session['validate'].lower() == request.POST['captcha'].lower():
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            username = data['username']
+            password = data['password']
+            if login_validate(request, username, password):
+                return HttpResponseRedirect('/')
             else:
-                error['errMessage'] = form.errors
+                error['errMessage'] = '用户名或密码错误！'
         else:
-            error['errMessage'] = '验证码错误！'
+            error['errMessage'] = form.errors
+            # else:
+            #     error['errMessage'] = '验证码错误！'
     else:
         form = LoginForm()
     return render_to_response('login.html', error, RequestContext(request))
