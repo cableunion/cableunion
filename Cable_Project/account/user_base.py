@@ -28,7 +28,7 @@ def _login(request):
     '''
     error = {'errMessage': ''}
     if request.method == 'POST':
-        if request.session['validate'].lower() == request.POST['captcha'].lower():
+        if request.session.has_key('validate') and request.session['validate'].lower() == request.POST['captcha'].lower():
             form = LoginForm(request.POST)
             if form.is_valid():
                 data = form.cleaned_data
@@ -38,6 +38,8 @@ def _login(request):
                     return HttpResponseRedirect('/')
                 else:
                     error['errMessage'] = '用户名或密码错误！'
+            else:
+                error['errMessage'] = form.errors
         else:
             error['errMessage'] = '验证码错误！'
     else:
