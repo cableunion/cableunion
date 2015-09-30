@@ -52,6 +52,7 @@ def create_validate_code(size=(120, 30),
     width, height = size #宽，高
     img = Image.new(mode, size, bg_color) # 创建图形
     draw = ImageDraw.Draw(img) # 创建画笔
+    print font_type
 
     def get_chars():
         '''生成给定长度的字符串，返回列表格式'''
@@ -133,6 +134,16 @@ def get_captcha(request):
     response['Pragma'] = "no-cache"
     response['Expires'] = "0"
     return response
+
+
+# @csrf_exempt
+# def validate(request):
+#     mstream = StringIO.StringIO()
+#     validate_code = create_validate_code()
+#     img = validate_code[0]
+#     img.save(mstream, "GIF")
+#     request.session['validate'] = validate_code[1]
+#     return HttpResponse(mstream.getvalue(), "image/gif")
 
 
 def removeFile(dir, postfix):
