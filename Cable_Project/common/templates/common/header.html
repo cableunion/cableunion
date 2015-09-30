@@ -2,21 +2,21 @@
     <div class="call">
         <p>
             <a href="/" style="padding-left: 20px;"> 首页 </a> |
-{# <em> 您好，这是我的课程设计 </em> #}
         </p>
     </div>
     <div class="account_desc">
 
         <ul>
         {% if user.is_authenticated %}
-            <li><a href="javascript:void(0);">欢迎{{ user.username }}，来到我的课程设计</a></li>
+            <li><a href="javascript:void(0);">欢迎{{ user.username }} | 中缆联盟</a></li>
+            <li><a href="/account/logout_views/">退出</a></li>
         {% else %}
             <li><a href="/account/register/">注册</a></li>
             <li><a href="/account/login/">登录</a></li>
         {% endif %}
-            <li><a href="#">Delivery</a></li>
-            <li><a href="#">Checkout</a></li>
-            <li><a href="#">My Account</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
         </ul>
 
     </div>
@@ -27,12 +27,12 @@
     <div class="logo">
         <a href="/"><img src="{{ STATIC_URL }}img/home/logo.png" alt=""></a>
     </div>
-    <div class="cart">
-        <p>Welcome to our Online Store! <span>Cart:</span></p><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - $0.00
-        <ul class="dropdown">
-            <li>you have no items in your Shopping cart</li>
-        </ul></div><p></p>
-    </div>
+{#    <div class="cart">#}
+{#        <p>Welcome to our Online Store! <span>Cart:</span></p><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - $0.00#}
+{#        <ul class="dropdown">#}
+{#            <li>you have no items in your Shopping cart</li>#}
+{#        </ul></div><p></p>#}
+{#    </div>#}
 
     <div class="clear"></div>
 </div>
