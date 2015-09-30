@@ -52,7 +52,6 @@ def create_validate_code(size=(120, 30),
     width, height = size #宽，高
     img = Image.new(mode, size, bg_color) # 创建图形
     draw = ImageDraw.Draw(img) # 创建画笔
-    print font_type
 
     def get_chars():
         '''生成给定长度的字符串，返回列表格式'''
@@ -82,8 +81,11 @@ def create_validate_code(size=(120, 30),
     def create_strs():
         '''绘制验证码字符'''
         c_chars = get_chars()
+        print font_type
         strs = ' %s ' % ' '.join(c_chars) # 每个字符前后以空格隔开
+        print font_type
         font = ImageFont.truetype(font_type, font_size)
+        print font_type
         font_width, font_height = font.getsize(strs)
         draw.text(((width - font_width) / 3, (height - font_height) / 3), strs, font=font, fill=fg_color)
 
