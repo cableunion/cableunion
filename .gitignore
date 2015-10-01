@@ -30,8 +30,9 @@ nosetests.xml
 # Translations
 *.mo
 
-# Mr Developer
+# pycharm
 .mr.developer.cfg
 .project
 .pydevproject/
 .idea
+.DS_Store
