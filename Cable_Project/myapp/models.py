@@ -20,16 +20,6 @@ class Wire(models.Model):
     thumb_picture = models.ImageField(u'缩略图', null=True, upload_to='', blank=True)
     create_time = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
-    class Meta:
-        verbose_name = u'线缆'
-        verbose_name_plural = u'线缆'
-        db_table = 'wire'
-        # app_label = 'category'
-        ordering = ['create_time']
-
-    def __unicode__(self):
-          return self.name
-
 
 class MechanicalEquipment(models.Model):
     cable_type = models.CharField(u'产品类型', max_length=50, null=False, blank=False, primary_key=True, unique=True)
@@ -54,16 +44,6 @@ class MechanicalEquipment(models.Model):
     thumb_picture = models.ImageField(u'缩略图', null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
-    class Meta:
-        verbose_name = u'机械设备'
-        verbose_name_plural = u'机械设备'
-        db_table = 'mechanical_equipment'
-        # app_label = 'category'
-        ordering = ['create_time']
-
-    def __unicode__(self):
-          return self.name
-
 
 class Rubber(models.Model):
     cable_type = models.CharField(u'产品类型', max_length=50, null=False, blank=False, primary_key=True, unique=True)
@@ -77,14 +57,3 @@ class Rubber(models.Model):
     picture = models.ImageField(u'图片', null=False, blank=False)
     thumb_picture = models.ImageField(u'缩略图', null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True, null=False, blank=False)
-
-    class Meta:
-        verbose_name = u'橡胶'
-        verbose_name_plural = u'橡胶'
-        db_table = 'rubber'
-        # app_label = 'category'
-        ordering = ['create_time']
-
-    def __unicode__(self):
-          return self.name
-
