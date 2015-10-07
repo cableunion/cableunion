@@ -35,6 +35,13 @@ def _login(request):
                 username = data['username']
                 password = data['password']
                 if login_validate(request, username, password):
+                    # print request.session.items()
+                    # [(u'validate', u'4D3f'),
+                    # ('_auth_user_hash', '12d158b95aa3a0a4500475bbe3cabc1ce167e157'),
+                    # ('_auth_user_backend', 'django.contrib.auth.backends.ModelBackend'),
+                    # ('_auth_user_id', 4L)]
+                    # print request.COOKIES
+                    # {'csrftoken': 'M47W6QDZjQd8cJTjAkGAY1iaTxnQ7Iyd', 'sessionid': 'mzbv8viq3mxr5w6tfgu6xiasyzcpaarf'}
                     return HttpResponseRedirect('/')
                 else:
                     error['errMessage'] = '用户名或密码错误！'
@@ -52,6 +59,10 @@ def _logout(request):
         退出
     '''
     logout(request) # 没有返回值
+    print request.session.items()
+
+    print request.COOKIES
+    # {'csrftoken': 'HrMsomwWlY9fg1etoKUXqCNJbdNKjP8H', 'sessionid': 'sbrvj8sc66o985vh7aj375s47lezlenj'}
     return HttpResponseRedirect('/')
 
 

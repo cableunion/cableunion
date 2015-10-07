@@ -13,4 +13,5 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
     url(r'^account/', include('account.urls')), # url(r'^account/$', include('account.urls')), 不能有结束符$
     url(r'', include('home.urls')),
+    url(r'^category/', include('category.urls')),
 )

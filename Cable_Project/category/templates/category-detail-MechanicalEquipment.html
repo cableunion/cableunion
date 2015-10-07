@@ -1,0 +1,139 @@
+{% extends 'common/Base/base.html' %}
+{% block title %}产品详情{% endblock %}
+{% block content %}
+    <div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="back-links">
+                <p><a href="/">主页</a> >>>> <a href="#">{{ category_detail.name }}</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section group">
+            <div class="cont-desc span_1_of_2">
+                <div class="product-details">
+                    <div class="grid images_3_of_2">
+                        <div id="container">
+                            <div id="products_example">
+                                <div id="products">
+                                    <div class="slides_container">
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/category-img/productslide-1.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/category-img/productslide-2.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/category-img/productslide-3.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/category-img/productslide-4.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/category-img/productslide-5.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/category-img/productslide-6.jpg" alt=" " /></a>
+                                    </div>
+                                    <ul class="pagination">
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/category-img/thumbnailslide-1.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/category-img/thumbnailslide-2.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/category-img/thumbnailslide-3.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/category-img/thumbnailslide-4.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/category-img/thumbnailslide-5.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/category-img/thumbnailslide-6.jpg" alt=" " /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desc span_3_of_2">
+                        <h2>{{ category_detail.name }}</h2>
+                        <p>机械设备-通用型芯线绝缘押出机</p>
+                        <div class="price">
+                            <p>价格: <span>{{ category_detail.price }}</span></p>
+                        </div>
+                        <div class="available">
+                            <ul>机型：
+                                <li>EX-30</li>
+                                <li>EX-40</li>
+                                <li>EX-50</li>
+                                <li>EX-60</li>
+                            </ul>
+                            <ul>放线型式：
+                                <li>主动式放线</li>
+                            </ul>
+                        </div>
+                        <div class="wish-list">
+                            <ul>
+                                <li class="wish"><a href="javascript:void(0);">买家保障</a></li>
+                                <li class="compare"><a href="javascript:void(0);">100%正品</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="product_desc">
+                    <div id="horizontalTab">
+                        <ul class="resp-tabs-list">
+                            <li>商品详情</li>
+                            <li>厂家信息</li>
+                            <li>购买咨询</li>
+                            <div class="clear"></div>
+                        </ul>
+                        <div class="resp-tabs-container">
+                            <div class="product-desc">
+                                <p>用途：<span>适用于电子线、电源线、数据线、控制线等多种芯线绝缘生产</span></p>
+                                <p>性能特征：优化设计的新型BM螺杆，具<span>产量大、塑化完全、换色快等</span></p>
+                                <p>挤制成型产品同心度93%以上，外径公差+/-0.01</p>
+                                <p>采用SCR功率控制器或固态继电器，配制RKC温控仪表，机身温差+/-1度</p>
+                                <p>人性化的机器设计配合友好的操作界面，线径自动追踪反馈，<span>操作更简单、省力、方便</span></p>
+                                <p><img src="{{ STATIC_URL }}images/category-introduce/E001-2.png" alt="" /></p>
+                            </div>
+
+                            <div class="product-tags">
+                                <p>{{ category_detail.manufacutre }}</p>
+                                <div>详情：</div>
+                            </div>
+
+                            <div class="review">
+                                <ul>
+                                    <li>价格咨询 :<a href="javascript:void(0);"></a></li>
+                                    <li>质量咨询 :<a href="javascript:void(0);"></a></li>
+                                    <li>物流咨询 :<a href="javascript:void(0);"></a></li>
+                                </ul>
+                                <p></p>
+                                <div class="your-review">
+                                    <h3>欢迎咨询......</h3>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content_bottom">
+                    <div class="heading">
+                        <h3>相关推荐</h3>
+                    </div>
+                    <div class="see">
+                        <p><a href="javascript:void(0);">查看全部</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="section group">
+                    {% for r in relation_category %}
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/category-img/E-pic-001.jpg" alt=""></a>
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="javascript:void(0);">{{ r.price }}</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ STATIC_URL }}category_js/easyResponsiveTabs.js"></script>
+    <script src="{{ STATIC_URL }}category_js/slides.min.jquery.js"></script>
+    <script src="{{ STATIC_URL }}category_js/category-detail.js"></script>
+{% endblock %}

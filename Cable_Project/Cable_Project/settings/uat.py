@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'account',
     'common',
     'home',
+    'category',
     'myapp',
 )
 
@@ -111,17 +112,24 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,  '../common/static'),
     os.path.join(BASE_DIR,  '../account/static'),
+    os.path.join(BASE_DIR,  '../home/static'),
+    os.path.join(BASE_DIR,  '../category/static'),
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), '../common/templates').replace('\\','/'),
-    os.path.join(os.path.dirname(__file__), '../account/templates').replace('\\','/'),
-    os.path.join(os.path.dirname(__file__), '../home/templates').replace('\\','/'),
+    os.path.join(os.path.dirname(__file__), '../common/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../account/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../home/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../category/templates').replace('\\', '/'),
     # os.path.join(BASE_DIR,  '../common/templates'),
     # os.path.join(BASE_DIR,  '../account/templates'),
     # os.path.join(BASE_DIR,  '../home/templates'),
 )
 
+MEDIA_URL = 'category/static/images/category-img/'
+MEDIA_ROOT = 'category/static/images/category-img/'
+
+SESSION_COOKIE_AGE = 60 * 60 # 60分钟
 EMAIL_HOST = '' #SMTP地址
 # EMAIL_PORT = 80 #SMTP端口
 EMAIL_HOST_USER = '' #我自己的邮箱
@@ -129,4 +137,4 @@ EMAIL_HOST_PASSWORD = '' #我的邮箱密码
 EMAIL_SUBJECT_PREFIX = u'[中缆联盟]' #为邮件Subject-line前缀,默认是'[django]'
 EMAIL_USE_TLS = True #与SMTP服务器通信时，是否启动TLS链接(安全链接)。默认是false
 #管理员站点
-# SERVER_EMAIL = '1451502450@qq.com'            #The email address that error messages come from, such as those sent to ADMINS and MANAGERS.
+# SERVER_EMAIL = ''            #The email address that error messages come from, such as those sent to ADMINS and MANAGERS.

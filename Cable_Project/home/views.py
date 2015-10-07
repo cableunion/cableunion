@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
+from django.contrib.sessions.backends.db import SessionStore
 # Create your views here.
 
 

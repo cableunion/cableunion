@@ -1,0 +1,137 @@
+{% extends 'common/Base/base.html' %}
+{% block title %}产品详情{% endblock %}
+{% block content %}
+    <div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="back-links">
+                <p><a href="/">主页</a> >>>> <a href="#">{{ category_detail.name }}</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section group">
+            <div class="cont-desc span_1_of_2">
+                <div class="product-details">
+                    <div class="grid images_3_of_2">
+                        <div id="container">
+                            <div id="products_example">
+                                <div id="products">
+                                    <div class="slides_container">
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/productslide-1.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/productslide-2.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/productslide-3.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/productslide-4.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/productslide-5.jpg" alt=" " /></a>
+                                        <a href="javascript:void(0);" target="_blank"><img src="{{ STATIC_URL }}images/productslide-6.jpg" alt=" " /></a>
+                                    </div>
+                                    <ul class="pagination">
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/thumbnailslide-1.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/thumbnailslide-2.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/thumbnailslide-3.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/thumbnailslide-4.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/thumbnailslide-5.jpg" alt=" " /></a></li>
+                                        <li><a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/thumbnailslide-6.jpg" alt=" " /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desc span_3_of_2">
+                        <h2>{{ category_detail.name }}</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        <div class="price">
+                            <p>价格: <span>{{ category_detail.price }}</span></p>
+                        </div>
+                        <div class="available">
+                            <ul>规格：
+                                <li>{{ category_detail.parameter }}</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                            <ul>型号：
+                                <li>{{ category_detail.type }}</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                        </div>
+                        <div class="wish-list">
+                            <ul>
+                                <li class="wish"><a href="javascript:void(0);">买家保障</a></li>
+                                <li class="compare"><a href="javascript:void(0);">100%正品</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="product_desc">
+                    <div id="horizontalTab">
+                        <ul class="resp-tabs-list">
+                            <li>商品详情</li>
+                            <li>厂家信息</li>
+                            <li>购买咨询</li>
+                            <div class="clear"></div>
+                        </ul>
+                        <div class="resp-tabs-container">
+                            <div class="product-desc">
+                                <p><span></span></p>
+                                <p><span></span></p>
+                                <p><span></span></p>
+                            </div>
+
+                            <div class="product-tags">
+                                <p>{{ category_detail.manufacutre }}</p>
+                                <div>详情：</div>
+                            </div>
+
+                            <div class="review">
+                                <ul>
+                                    <li>价格咨询 :<a href="javascript:void(0);"></a></li>
+                                    <li>质量咨询 :<a href="javascript:void(0);"></a></li>
+                                    <li>物流咨询 :<a href="javascript:void(0);"></a></li>
+                                </ul>
+                                <p></p>
+                                <div class="your-review">
+                                    <h3>欢迎咨询......</h3>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content_bottom">
+                    <div class="heading">
+                        <h3>相关推荐</h3>
+                    </div>
+                    <div class="see">
+                        <p><a href="javascript:void(0);">查看全部</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="section group">
+                    {% for r in relation_category %}
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <a href="javascript:void(0);"><img src="{{ STATIC_URL }}images/new-pic1.jpg" alt=""></a>
+                        <div class="price" style="border:none">
+                            <div class="add-cart" style="float:none">
+                                <h4><a href="javascript:void(0);">{{ r.price }}</a></h4>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ STATIC_URL }}category_js/easyResponsiveTabs.js"></script>
+    <script src="{{ STATIC_URL }}category_js/slides.min.jquery.js"></script>
+    <script src="{{ STATIC_URL }}category_js/category-detail.js"></script>
+{% endblock %}

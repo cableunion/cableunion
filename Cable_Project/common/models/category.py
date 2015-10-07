@@ -16,7 +16,7 @@ class Wire(models.Model):
     location = models.CharField(u'所在地', max_length=50, null=True, blank=True)
     description = models.CharField(u'详情说明', max_length=50, null=True, blank=True)
     price = models.FloatField(u'单价', null=False, blank=False)
-    picture = models.ImageField(u'图片', upload_to='', null=False, blank=False)
+    picture = models.ImageField(u'图片', null=False, blank=False)
     thumb_picture = models.ImageField(u'缩略图', null=True, upload_to='', blank=True)
     create_time = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
@@ -24,7 +24,7 @@ class Wire(models.Model):
         verbose_name = u'线缆'
         verbose_name_plural = u'线缆'
         db_table = 'wire'
-        # app_label = 'category'
+        app_label = 'category'
         ordering = ['create_time']
 
     def __unicode__(self):
@@ -58,7 +58,7 @@ class MechanicalEquipment(models.Model):
         verbose_name = u'机械设备'
         verbose_name_plural = u'机械设备'
         db_table = 'mechanical_equipment'
-        # app_label = 'category'
+        app_label = 'category'
         ordering = ['create_time']
 
     def __unicode__(self):
@@ -82,7 +82,7 @@ class Rubber(models.Model):
         verbose_name = u'橡胶'
         verbose_name_plural = u'橡胶'
         db_table = 'rubber'
-        # app_label = 'category'
+        app_label = 'category'
         ordering = ['create_time']
 
     def __unicode__(self):
