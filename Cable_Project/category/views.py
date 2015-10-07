@@ -6,7 +6,7 @@ from common.helper.models_help import choice_table
 
 def category_detail(request, cable_type):
     table = choice_table(cable_type)
-    category_detail = table.objects.get(cable_type=cable_type)
+    category_detail = table.objects.filter(cable_type='')
     table_all = table.objects.all()
     relation_category = random.sample(table_all, 4 if table_all.count() > 4 else table_all.count())
     if table.__name__ == 'Wire':
@@ -16,7 +16,7 @@ def category_detail(request, cable_type):
     elif table.__name__ == 'Rubber':
         template_name = 'category-detail-Rubber.html'
     else:
-        template_name = 'category-detail-error.html'
+        template_name = 'category-detail-MechanicalEquipment.html'
     vm = {
         'category_detail': category_detail,
         'relation_category': relation_category
