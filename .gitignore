@@ -30,10 +30,15 @@ nosetests.xml
 # Translations
 *.mo
 
-# Mr Developer
+# pycharm
 .mr.developer.cfg
 .project
 .pydevproject/
 .idea
+<<<<<<< HEAD
 .sql
 .rar
+=======
+.DS_Store
+/Cable_Project/.idea
+>>>>>>> origin/master
