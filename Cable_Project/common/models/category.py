@@ -27,9 +27,6 @@ class Wire(models.Model):
         app_label = 'category'
         ordering = ['create_time']
 
-    def __unicode__(self):
-          return self.name
-
 
 class MechanicalEquipment(models.Model):
     cable_type = models.CharField(u'产品类型', max_length=50, null=False, blank=False, primary_key=True, unique=True)
@@ -61,9 +58,6 @@ class MechanicalEquipment(models.Model):
         app_label = 'category'
         ordering = ['create_time']
 
-    def __unicode__(self):
-          return self.name
-
 
 class Rubber(models.Model):
     cable_type = models.CharField(u'产品类型', max_length=50, null=False, blank=False, primary_key=True, unique=True)
@@ -84,7 +78,4 @@ class Rubber(models.Model):
         db_table = 'rubber'
         app_label = 'category'
         ordering = ['create_time']
-
-    def __unicode__(self):
-          return self.name
 
