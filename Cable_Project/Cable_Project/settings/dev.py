@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'home',
     'category',
     'myapp',
+    'article',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,6 +115,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,  '../account/static'),
     os.path.join(BASE_DIR,  '../home/static'),
     os.path.join(BASE_DIR,  '../category/static'),
+    os.path.join(BASE_DIR,  '../article/static'),
 )
 
 TEMPLATE_DIRS = (
@@ -121,6 +123,7 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), '../account/templates').replace('\\', '/'),
     os.path.join(os.path.dirname(__file__), '../home/templates').replace('\\', '/'),
     os.path.join(os.path.dirname(__file__), '../category/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../article/templates').replace('\\', '/'),
     # os.path.join(BASE_DIR,  '../common/templates'),
     # os.path.join(BASE_DIR,  '../account/templates'),
     # os.path.join(BASE_DIR,  '../home/templates'),
