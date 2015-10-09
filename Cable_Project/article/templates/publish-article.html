@@ -1,0 +1,30 @@
+{% extends 'common/Base/base.html' %}
+
+{% block css %}
+    <link href="{{ STATIC_URL }}article_js/kindeditor/default/default.css?v={{ request.version }}" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}article_js/kindeditor/code/prettify.css?v={{ request.version }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <from>
+        <textarea id="id_content" name="content" cols="100" rows="8" style="width:700px;height:300px;"></textarea>
+    </from>
+{% endblock %}
+
+
+{% block js %}
+    <script src="{{ STATIC_URL }}article_js/kindeditor/kindeditor-all-min.js"></script>
+    <script src="{{ STATIC_URL }}article_js/kindeditor/code/prettify.js"></script>
+
+    <script type="text/javascript">
+        KindEditor.ready(function(K) {
+            window.editor = K.create('#id_content',{
+                // 指定大小
+                width:'800px',
+                height:'200px'
+            });
+
+        });
+
+    </script>
+{% endblock %}

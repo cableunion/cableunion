@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from common.models.account import UserProfile
+from common.models.article import Article
 from common.models.category import Wire, MechanicalEquipment, Rubber
 # Register your models here.
 
@@ -34,7 +35,12 @@ class RubberAdmin(admin.ModelAdmin):
     ordering = ('-create_time', )
 
 
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'create_time', )
+
+
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Wire, WireAdmin)
 admin.site.register(MechanicalEquipment, MechanicalEquipmentAdmin)
 admin.site.register(Rubber, RubberAdmin)
+admin.site.register(Article, ArticleAdmin)

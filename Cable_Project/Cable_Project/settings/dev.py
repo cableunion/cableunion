@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'cable_trunk',
     'account',
     'common',
@@ -129,8 +131,9 @@ TEMPLATE_DIRS = (
     # os.path.join(BASE_DIR,  '../home/templates'),
 )
 
-MEDIA_URL = 'category/static/images/category-img/'
-MEDIA_ROOT = 'category/static/images/category-img/'
+MEDIA_URL = '/static/images/category-img/'
+MEDIA_ROOT = 'category/static/images/category-introduce/'
+CKEDITOR_UPLOAD_PATH = STATIC_URL + '/article_images/' # ckeditor
 
 SESSION_COOKIE_AGE = 60 * 60 # 60分钟
 EMAIL_HOST = '' #SMTP地址

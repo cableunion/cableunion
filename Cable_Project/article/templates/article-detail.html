@@ -1,0 +1,20 @@
+{% extends 'common/Base/base.html' %}
+{% load filter %}
+{% block content %}
+    <div class="main">
+        <div class="content">
+            <div class="group">
+                <div class="grid news_desc">
+                    <h2 style="text-align: center;">{{ article.title }}</h2>
+                    <h4 style="text-align: center;">{{ article.create_time }}<span><a>【{{ article.type|article_type_value }}】</a></span></h4>
+                    <div>
+                        {{ article.content|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}{% endblock %}
+
