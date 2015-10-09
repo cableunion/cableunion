@@ -36,12 +36,15 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'cable_trunk',
     'account',
     'common',
     'home',
     'category',
     'myapp',
+    'article',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,6 +117,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,  '../account/static'),
     os.path.join(BASE_DIR,  '../home/static'),
     os.path.join(BASE_DIR,  '../category/static'),
+    os.path.join(BASE_DIR,  '../article/static'),
 )
 
 TEMPLATE_DIRS = (
@@ -121,13 +125,15 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), '../account/templates').replace('\\', '/'),
     os.path.join(os.path.dirname(__file__), '../home/templates').replace('\\', '/'),
     os.path.join(os.path.dirname(__file__), '../category/templates').replace('\\', '/'),
+    os.path.join(os.path.dirname(__file__), '../article/templates').replace('\\', '/'),
     # os.path.join(BASE_DIR,  '../common/templates'),
     # os.path.join(BASE_DIR,  '../account/templates'),
     # os.path.join(BASE_DIR,  '../home/templates'),
 )
 
-MEDIA_URL = 'category/static/images/category-img/'
-MEDIA_ROOT = 'category/static/images/category-img/'
+MEDIA_URL = '/static/images/category-img/'
+MEDIA_ROOT = 'category/static/images/category-introduce/'
+CKEDITOR_UPLOAD_PATH = STATIC_URL + '/article_images/' # ckeditor
 
 SESSION_COOKIE_AGE = 60 * 60 # 60分钟
 EMAIL_HOST = '' #SMTP地址
