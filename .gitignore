@@ -35,10 +35,8 @@ nosetests.xml
 .project
 .pydevproject/
 .idea
-<<<<<<< HEAD
 .sql
 .rar
-=======
 .DS_Store
 /Cable_Project/.idea
->>>>>>> origin/master
+

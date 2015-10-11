@@ -28,6 +28,8 @@ def _login(request):
     '''
     error = {'errMessage': ''}
     if request.method == 'POST':
+        print request.session.items()
+        print request.COOKIES
         if request.session.has_key('validate') and request.session['validate'].lower() == request.POST['captcha'].lower():
             form = LoginForm(request.POST)
             if form.is_valid():
@@ -58,10 +60,12 @@ def _logout(request):
     '''
         退出
     '''
+    # print request.session.items()
+    # print request.COOKIES
     logout(request) # 没有返回值
-    print request.session.items()
+    # print request.session.items()
 
-    print request.COOKIES
+    # print request.COOKIES
     # {'csrftoken': 'HrMsomwWlY9fg1etoKUXqCNJbdNKjP8H', 'sessionid': 'sbrvj8sc66o985vh7aj375s47lezlenj'}
     return HttpResponseRedirect('/')
 

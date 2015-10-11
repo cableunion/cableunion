@@ -1,3 +1,4 @@
+{% load filter %}
 <div class="main">
 <div class="content">
 <div class="content_top">
@@ -78,36 +79,12 @@
                 <div class="HomeTitle2">产业信息</div>
                 <div class="HomeNewsList">
                     <ul>
-                        <li><span>[电缆] </span><a href="/article/content/2/"
-                                                 target="_blank" title="洛阳双瑞万基钛业有限公司动力电缆采购项目招标公告">洛阳双瑞万基钛业有限公司动力电缆采...</a>
-                        </li>
-
-                        <li><span>[光缆] </span><a href="/article/content/2/"
-                                                 target="_blank" title="龙穴厂区2.5万吨级滑道及总装场地电缆招标公告">龙穴厂区2.5万吨级滑道及总装场地电缆...</a>
-                        </li>
-
-                        <li><span>[原料] </span><a href="/article/content/2/"
-                                                 target="_blank"
-                                                 title="10kV跃进村1、2、3组上市地块电力架空线路迁改工程高低压电力电缆采购招标公告">10kV跃进村1、2、3组上市地块电力架空...</a>
-                        </li>
-
-                        <li><span>[橡胶] </span><a href="/article/content/2/"
-                                                 target="_blank"
-                                                 title="大唐济南长清风电场二期工程升压站及风机基础及集电线路接地材料及安装工程招标公告">大唐济南长清风电场二期工程升压站及...</a>
-                        </li>
-
-                        <li><span>[招标] </span><a href="/article/content/2/"
-                                                 target="_blank" title="上海市长江西路越江隧道新建工程T3标电缆供货及服务项目公开招标公告">上海市长江西路越江隧道新建工程T3标...</a>
-                        </li>
-
-                        <li><span>[企业] </span><a href="/article/content/2/"
-                                                 target="_blank" title="江浦街道花卉大道拆迁安置房建设项目室外电缆安装工程的招标公告">江浦街道花卉大道拆迁安置房建设项目...</a>
-                        </li>
-
-                        <li><span>[会展] </span><a href="/article/content/2/"
-                                                 target="_blank"
-                                                 title="广东电网有限责任公司清远供电局清城供电局购置电缆振荡波测试仪等项目专项招标招标公告">广东电网有限责任公司清远供电局清城...</a>
-                        </li>
+                        {% for i in iif %}
+                            <li>
+                                <span>[{{ i.type|article_type_value }}]</span>
+                                <a href="{% if i.origin == 1 %}/article/content/{{ i.id }}/{% elif i.origin == 2 %}{{ i.origin_url }}{% endif %}" target="_blank" title="{{ i.title }}">{{ i.title|slice:":15" }}...</a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -115,33 +92,12 @@
                 <div class="HomeTitle2">报刊内参</div>
                 <div class="HomeNewsList">
                     <ul>
-                        <li><span>[国外] </span><a href="/article/content/2/"
-                                                 target="_blank"
-                                                 title="2015中国(宁波)国际电线电缆及材料设备展览会暨电缆附件、原辅材料采购交易会">2015中国(宁波)国际电线电缆及材料设备...</a>
-                        </li>
-
-                        <li><span>[龙头] </span><a href="/article/content/2/"
-                                                 target="_blank" title="2015第十四届中国（青岛）国际电线电缆光纤光缆及电缆附件展览会">2015第十四届中国（青岛）国际电线电缆...</a>
-                        </li>
-
-                        <li><span>[项目] </span><a href="/article/content/2/"
-                                                 target="_blank" title="第十六届中国金属冶金铜业展">第十六届中国金属冶金铜业展</a></li>
-
-                        <li><span>[会展] </span><a href="/article/content/2/"
-                                                 target="_blank"
-                                                 title="2015越南胡志明国际电线电缆展览会">2015越南胡志明国际电线电缆展览会</a></li>
-
-                        <li><span>[会展] </span><a href="/article/content/2/"
-                                                 target="_blank" title="2015中国(宁波)国际线缆工业展">2015中国(宁波)国际线缆工业展</a>
-                        </li>
-
-                        <li><span>[会展] </span><a href="/article/content/2/"
-                                                 target="_blank" title="2015年第八届越南国际电力设备与技术展览会">2015年第八届越南国际电力设备与技术展...</a>
-                        </li>
-
-                        <li><span>[会展] </span><a href="/article/content/2/"
-                                                 target="_blank"
-                                                 title="2015法兰克福第七届广州国际线缆展">2015法兰克福第七届广州国际线缆展</a></li>
+                        {% for p in pct %}
+                            <li>
+                                <span>[国外]</span>
+                                <a href="{% if i.origin == 1 %}/article/content/{{ i.id }}/{% elif i.origin == 2 %}{{ i.origin_url }}{% endif %}" target="_blank" title="{{ p.title }}">{{ p.title|slice:":15" }}...</a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

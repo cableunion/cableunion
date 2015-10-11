@@ -17,7 +17,7 @@ class Wire(models.Model):
     description = models.CharField(u'详情说明', max_length=50, null=True, blank=True)
     price = models.FloatField(u'单价', null=False, blank=False)
     purpose = models.ImageField(u'产品用途', upload_to='W/', null=False, blank=False) # purpose
-    technology_parameter = models.ImageField(u'技术参数', upload_to='W/', null=True, blank=True) # technology_parameter
+    technology_parameter = models.ImageField(u'技术参数', upload_to='W/', null=False, blank=False) # technology_parameter
     create_time = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
     class Meta:
@@ -34,7 +34,7 @@ class MechanicalEquipment(models.Model):
     model = models.CharField(u'机型', max_length=50, null=False, blank=False)
     pay_off_bobbin = models.CharField(u'放线盘', max_length=50, null=True, blank=True)
     take_up_bobbin = models.CharField(u'收线盘', max_length=50, null=True, blank=True)
-    wire_diameter = models.CharField(u'适用线径', max_length=50, null=False, blank=False)
+    wire_diameter = models.CharField(u'适用线径', max_length=50, null=True, blank=True)
     max_twist_diameter = models.CharField(u'最大绞合外径', max_length=50, null=True, blank=True)
     lay_length = models.CharField(u'绞距', max_length=50, null=True, blank=True)
     rotate_speed = models.CharField(u'回转速', max_length=50, null=True, blank=True)
@@ -48,7 +48,7 @@ class MechanicalEquipment(models.Model):
     total_weight = models.CharField(u'总重量', max_length=50, null=True, blank=True)
     price = models.FloatField(u'单价', null=False, blank=False)
     purpose = models.ImageField(u'产品用途', upload_to='M_E/', null=False, blank=False)
-    technology_parameter = models.ImageField(u'技术参数', upload_to='M_E/', null=True, blank=True)
+    technology_parameter = models.ImageField(u'技术参数', upload_to='M_E/', null=False, blank=False)
     create_time = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
     class Meta:
@@ -69,7 +69,7 @@ class Rubber(models.Model):
     description = models.CharField(u'简介', max_length=50, null=True, blank=True)
     price = models.FloatField(u'单价', null=False, blank=False)
     purpose = models.ImageField(u'产品用途', upload_to='R/', null=False, blank=False)
-    technology_parameter = models.ImageField(u'技术参数', upload_to='R/', null=True, blank=True)
+    technology_parameter = models.ImageField(u'技术参数', upload_to='R/', null=False, blank=False)
     create_time = models.DateTimeField(auto_now_add=True, null=False, blank=False)
 
     class Meta:

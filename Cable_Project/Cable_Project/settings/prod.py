@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'common',
     'home',
     'category',
-    'myapp',
+    'create_table',
     'article',
 )
 
