@@ -131,7 +131,7 @@ TEMPLATE_DIRS = (
     # os.path.join(BASE_DIR,  '../home/templates'),
 )
 
-MEDIA_URL = '/static/images/category-img/'
+MEDIA_URL = '/static/images/category-introduce/'
 MEDIA_ROOT = 'category/static/images/category-introduce/'
 CKEDITOR_UPLOAD_PATH = STATIC_URL + '/article_images/' # ckeditor
 
