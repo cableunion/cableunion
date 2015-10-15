@@ -25,3 +25,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(label=u'用户名', max_length=25, widget=forms.TextInput)
     password = forms.CharField(label=u'密码', max_length=25, widget=forms.PasswordInput)
 
+
+class revisePasswordForm(forms.Form):
+    password = forms.CharField(max_length=25, widget=forms.PasswordInput)
+    password2 = forms.CharField(max_length=25, widget=forms.PasswordInput)

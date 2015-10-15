@@ -26,6 +26,12 @@ def register_complete(request, user_uuid, template_name):
     return render_to_response(template_name, vm, RequestContext(request))
 
 
-def welcome(request, template_name):
-    vm = {}
+def revise_password_callback(request, user_uuid, template_name):
+    vm = {'content': ''}
+    userprofile = UserProfile.objects.filter(user_uuid=user_uuid)
+    if not userprofile.exists():
+        vm['content'] = u'用户不存在'
+        template_name = 'register-complete-true-active.html'
+    vm['user_uuid'] = user_uuid
     return render_to_response(template_name, vm, RequestContext(request))
+

@@ -8,8 +8,8 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 # shortcuts 捷径
-from account.form import LoginForm, RegisterForm
-from account.user_base_apis import login_validate
+from account.form import LoginForm, RegisterForm, revisePasswordForm
+from account.user_base_apis import login_validate, set_email_url
 from common.helper.send_email import set_email, send_email_main
 from common.models.account import UserProfile
 
@@ -28,8 +28,8 @@ def _login(request):
     '''
     error = {'errMessage': ''}
     if request.method == 'POST':
-        print request.session.items()
-        print request.COOKIES
+        # print request.session.items()
+        # print request.COOKIES
         if request.session.has_key('validate') and request.session['validate'].lower() == request.POST['captcha'].lower():
             form = LoginForm(request.POST)
             if form.is_valid():
@@ -107,7 +107,8 @@ def register(request):
                 user.user_uuid = register_dict['user_uuid']
                 user.is_active = False
                 user.save()
-                send_email_main(to_mail=email, user_uuid=register_dict['user_uuid'] + '/?uid={0}&zllm={1}&actionCode={2}'.format(username, 'zllm', str(uuid.uuid1())))
+                uu_url = set_email_url('register/', username, 'zllm')
+                send_email_main(to_mail=email, user_uuid=uu_url)
                 return HttpResponseRedirect('/account/register/complete_prompt')
             elif UserProfile.objects.filter(username=username):
                 error['errMessage'] = '用户名已存在！'
@@ -122,16 +123,40 @@ def register(request):
 
 
 @login_required(login_url='/account/login/')
+def revise_password_check(request):
+    '''
+        重置密码，发送邮件和验证邮件
+    '''
+    template_name = 'register-complete-false-active.html'
+    vm = {'errMessage': ''}
+    email = request.POST.get('email')
+    if not UserProfile.objects.filter(email=email).exists():
+        vm['errMessage'] = '该邮箱未注册！'
+    else:
+        uu_url = set_email_url('revise-password/', '', 'zllm')
+        send_email_main(to_mail=email, user_uuid=uu_url)
+        template_name = 'revise-password.html'
+        return render_to_response(template_name, vm, RequestContext(request))
+    return render_to_response(template_name, vm, RequestContext(request))
+
+
+@login_required(login_url='/account/login/')
 def revise_password(request):
     '''
-        修改密码
+        重置密码
     '''
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    user = UserProfile.objects.get(username_exact=username)
-    user.set_password(password)
-    user.save()
-    return render_to_response('', {}, RequestContext(request))
+    vm = {'content': ''}
+    form = revisePasswordForm(request.POST)
+    user_uuid = request.POST.get('user_uuid')
+    if form.is_valid():
+        data = form.cleaned_data
+        user = UserProfile.objects.get(user_uuid_exact=user_uuid)
+        user.set_password(data['password'])
+        user.save()
+    else:
+        form = revisePasswordForm()
+    vm['content'] = u'密码修改成功，请用新密码重新登录！'
+    return render_to_response('register-complete-true-active.html', vm, RequestContext(request))
 
 
 def register_complete(request, user_uuid, template_name):
