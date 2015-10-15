@@ -122,7 +122,7 @@ def register(request):
     return render_to_response('register.html', error, RequestContext(request))
 
 
-@login_required(login_url='/account/login/')
+@csrf_exempt
 def revise_password_check(request):
     '''
         重置密码，发送邮件和验证邮件
@@ -140,7 +140,7 @@ def revise_password_check(request):
     return render_to_response(template_name, vm, RequestContext(request))
 
 
-@login_required(login_url='/account/login/')
+@csrf_exempt
 def revise_password(request):
     '''
         重置密码
