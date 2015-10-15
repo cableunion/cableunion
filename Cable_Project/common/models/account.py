@@ -15,4 +15,4 @@ class UserProfile(AbstractUser):
     mobile = models.CharField(u'手机号', max_length=50, null=False, blank=False)
     postalcode = models.CharField(u'邮编', max_length=50, null=True, blank=True)
     industry = models.CharField(u'行业', max_length=50, null=True, blank=True)
-    user_uuid = models.CharField(u'完成注册', max_length=50, null=False, blank=False)
+    user_uuid = models.CharField(u'account', max_length=50, null=False, blank=False)

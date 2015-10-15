@@ -107,7 +107,7 @@ def register(request):
                 user.user_uuid = register_dict['user_uuid']
                 user.is_active = False
                 user.save()
-                uu_url = set_email_url('register/', username, 'zllm')
+                uu_url = set_email_url('register/', register_dict['user_uuid'], username, 'zllm')
                 send_email_main(to_mail=email, user_uuid=uu_url, flag='login')
                 return HttpResponseRedirect('/account/register/complete_prompt')
             elif UserProfile.objects.filter(username=username):
@@ -133,7 +133,8 @@ def revise_password_check(request):
     if not UserProfile.objects.filter(email=email).exists():
         vm['errMessage'] = '该邮箱未注册！'
     else:
-        uu_url = set_email_url('revise-password/', '', 'zllm')
+        user_uuid = UserProfile.objects.get(email=email).user_uuid
+        uu_url = set_email_url('revise-password/', user_uuid, '', 'zllm')
         send_email_main(to_mail=email, user_uuid=uu_url, flag='revise')
         vm['content'] = '修改密码邮件已发送，请至邮箱查看！'
     return render_to_response(template_name, vm, RequestContext(request))
@@ -149,7 +150,7 @@ def revise_password(request):
     user_uuid = request.POST.get('user_uuid')
     if form.is_valid():
         data = form.cleaned_data
-        user = UserProfile.objects.get(user_uuid_exact=user_uuid)
+        user = UserProfile.objects.get(user_uuid=user_uuid)
         user.set_password(data['password'])
         user.save()
     else:

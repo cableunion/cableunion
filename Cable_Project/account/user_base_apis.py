@@ -16,7 +16,6 @@ def login_validate(request, username, password):
     return rtvalue
 
 
-def set_email_url(url, uid, zllm):
-    user_uuid = str(uuid.uuid1()).replace('-', '')
+def set_email_url(url, user_uuid, uid, zllm):
     uu_url = url + user_uuid + '/?uid={0}&zllm={1}&actionCode={2}'.format(uid, zllm, str(uuid.uuid1()))
     return uu_url
