@@ -108,7 +108,7 @@ def register(request):
                 user.is_active = False
                 user.save()
                 uu_url = set_email_url('register/', username, 'zllm')
-                send_email_main(to_mail=email, user_uuid=uu_url)
+                send_email_main(to_mail=email, user_uuid=uu_url, flag='login')
                 return HttpResponseRedirect('/account/register/complete_prompt')
             elif UserProfile.objects.filter(username=username):
                 error['errMessage'] = '用户名已存在！'
@@ -127,16 +127,15 @@ def revise_password_check(request):
     '''
         重置密码，发送邮件和验证邮件
     '''
-    template_name = 'register-complete-false-active.html'
-    vm = {'errMessage': ''}
+    template_name = 'register-complete-true-active.html'
+    vm = {'content': ''}
     email = request.POST.get('email')
     if not UserProfile.objects.filter(email=email).exists():
         vm['errMessage'] = '该邮箱未注册！'
     else:
         uu_url = set_email_url('revise-password/', '', 'zllm')
-        send_email_main(to_mail=email, user_uuid=uu_url)
-        template_name = 'revise-password.html'
-        return render_to_response(template_name, vm, RequestContext(request))
+        send_email_main(to_mail=email, user_uuid=uu_url, flag='revise')
+        vm['content'] = '修改密码邮件已发送，请至邮箱查看！'
     return render_to_response(template_name, vm, RequestContext(request))
 
 

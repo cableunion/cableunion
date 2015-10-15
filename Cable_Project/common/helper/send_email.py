@@ -74,9 +74,14 @@ class smtpMail(object):
         print '%s邮件发送成功' % tomail
 
 
-def send_email_main(to_mail=None, subject=None, content=None, file_name=None, user_uuid=None):
+def send_email_main(to_mail=None, subject=None, content=None, file_name=None, user_uuid=None, flag=None):
     email_sys = eval(ZLLMSysSettings.objects.get(code="ZLLM_EMAIL_SINA_SYS").sys_value)
     sdmail = smtpMail(email_sys['From'], email_sys['from_smtp'], email_sys['from_user'], email_sys['from_passrd'])
     subject = '中缆联盟'
-    content = '欢迎注册中缆联盟，请点击以下链接完成注册！'
+    if flag == 'revise':
+        content = '请点击以下链接修改密码！'
+    elif flag == 'login':
+        content = '欢迎注册中缆联盟，请点击以下链接完成注册！'
+    else:
+        content = '中缆联盟'
     sdmail.send_mail(to_mail, subject, content, file_name, user_uuid)
