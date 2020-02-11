@@ -1,7 +1,7 @@
 apt-xapian-index==0.45
 chardet==2.0.1
 colorama==0.2.5
-Django==1.7.2
+Django==1.11.28
 django-ckeditor==5.0.2
 gunicorn==19.3.0
 html5lib==0.999
